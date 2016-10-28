@@ -1,0 +1,16 @@
+{
+    "name": "taylornetwork/name-formatter",
+    "description": "A name formatter for Laravel",
+    "authors": [
+        {
+            "name": "Sam Taylor",
+            "email": "sam@taylornetwork.ca"
+        }
+    ],
+    "require": {},
+    "autoload": {
+    	"psr-4": {
+			"TaylorNetwork\\Formatters\\Name\\": "src/"
+    	}
+    }
+}
