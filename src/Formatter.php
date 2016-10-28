@@ -88,16 +88,16 @@ class Formatter
             switch($this->style[$i])
             {
                 case 'F':
-                    $name .= $this->model->{$this->getField['first_name']};
+                    $name .= $this->model->{$this->getField('first_name')};
                     break;
                 case 'f':
-                    $name .= $this->model->{$this->getField['first_name']}[0];
+                    $name .= $this->model->{$this->getField('first_name')}[0];
                     break;
                 case 'L':
-                    $name .= $this->model->{$this->getField['last_name']};
+                    $name .= $this->model->{$this->getField('last_name')};
                     break;
                 case 'l':
-                    $name .= $this->model->{$this->getField['last_name']}[0];
+                    $name .= $this->model->{$this->getField('last_name')}[0];
                     break;
                 default:
                     $name .= $this->style[$i];
