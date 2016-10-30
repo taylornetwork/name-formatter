@@ -4,7 +4,7 @@ namespace TaylorNetwork\Formatters\Name;
 
 use Illuminate\Support\ServiceProvider;
 
-class NameFormatterProvider extends ServiceProvider
+class NameFormatterServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -14,7 +14,7 @@ class NameFormatterProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'config/nameformatter.php' => config_path('nameformatter.php'),
+            __DIR__.'/config/nameformatter.php' => config_path('nameformatter.php'),
         ]);
     }
 
@@ -26,7 +26,7 @@ class NameFormatterProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'config/nameformatter.php', 'nameformatter'
+            __DIR__.'/config/nameformatter.php', 'nameformatter'
         );
     }
 }
