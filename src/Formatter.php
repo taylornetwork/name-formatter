@@ -33,18 +33,27 @@ class Formatter
     public function __construct($model)
     {
         $this->model = $model;
+        $this->style = config('nameformatter.style');
+        $this->fieldMap = config('nameformatter.fieldMap');
     }
 
 	/**
 	 * Map a field to the model's equivalent
 	 *
-	 * @param string $field
-	 * @param string $modelField
+	 * @param array|string $field
+	 * @param string|null $modelField
 	 * @return $this
 	 */
-	public function map($field, $modelField)
+	public function map($field, $modelField = null)
 	{
-		$this->fieldMap[$field] = $modelField;
+        if(is_array($field))
+        {
+            $this->fieldMap = $field;
+        }
+        else
+        {
+            $this->fieldMap[$field] = $modelField;
+        }
 		return $this;
 	}
 
@@ -88,16 +97,16 @@ class Formatter
             switch($this->style[$i])
             {
                 case 'F':
-                    $name .= $this->model->{$this->getField['first_name']};
+                    $name .= $this->model->{$this->getField('first_name')};
                     break;
                 case 'f':
-                    $name .= $this->model->{$this->getField['first_name']}[0];
+                    $name .= $this->model->{$this->getField('first_name')}[0];
                     break;
                 case 'L':
-                    $name .= $this->model->{$this->getField['last_name']};
+                    $name .= $this->model->{$this->getField('last_name')};
                     break;
                 case 'l':
-                    $name .= $this->model->{$this->getField['last_name']}[0];
+                    $name .= $this->model->{$this->getField('last_name')}[0];
                     break;
                 default:
                     $name .= $this->style[$i];
