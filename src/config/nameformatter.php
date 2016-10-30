@@ -9,10 +9,10 @@ return [
     
     /* 
      |--------------------------------------------------------------------------
-     | Default Name Format
+     | Default Name Style
      |--------------------------------------------------------------------------
      |
-     | The name formatter will use this as the default name format,
+     | The name formatter will use this as the default name style,
      | unless overridden by a call.
      | 
      | Options:
@@ -34,7 +34,7 @@ return [
      |      'ff_L'  => 'SS_Taylor'
      | 
      */
-    'format' => 'F L',
+    'style' => 'F L',
 
     /* 
      |--------------------------------------------------------------------------
