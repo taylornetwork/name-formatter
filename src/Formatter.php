@@ -9,7 +9,7 @@ class Formatter
      *
      * @var string
      */
-    protected $style = 'F L';
+    protected $style;
 
     /**
      * Model
@@ -23,7 +23,7 @@ class Formatter
      * 
      * @var array
      */
-    protected $fieldMap = [];
+    protected $fieldMap;
 
     /**
      * NameFormatter constructor.
@@ -33,8 +33,8 @@ class Formatter
     public function __construct($model)
     {
         $this->model = $model;
-        $this->style = config('nameformatter.style');
-        $this->fieldMap = config('nameformatter.fieldMap');
+        $this->style = config('nameformatter.style', 'F L');
+        $this->fieldMap = config('nameformatter.fieldMap', []);
     }
 
 	/**
