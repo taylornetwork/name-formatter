@@ -37,7 +37,7 @@ Create a new instance of the class by passing it an instance of `Illuminate\Eloq
 Let's say we have a Customer model at `App\Customer`
 
 ``` php
-use Illuminate\Eloquent\Model
+use Illuminate\Eloquent\Model;
 
 class Customer extends Model
 {
@@ -52,7 +52,7 @@ We can create a getAttribute method Laravel will use to create the attribute for
 See [Laravel Eloquent Documentation][link-laravel-doc] for more information.
 
 ``` php
-use Illuminate\Eloquent\Model
+use Illuminate\Eloquent\Model;
 use TaylorNetwork\Formatters\Name\Formatter;
 
 class Customer extends Model
@@ -189,7 +189,7 @@ $formatter->style('fffF lllL')->format();
 This package also comes with a trait you can add to your models.
 
 ``` php
-use Illuminate\Eloquent\Model
+use Illuminate\Eloquent\Model;
 use TaylorNetwork\Formatters\Name\Traits\ModelNameFormat;
 
 class Customer extends Model
@@ -212,7 +212,7 @@ class Customer extends Model
 Usage is the same as the class above, however it will add `getNameFormatter()` to your models which will return an instance of the `Formatter` class. It also will allow you to override defaults in the model itself by overriding the properties in the `ModelNameFormat` trait.
 
 ``` php
-use Illuminate\Eloquent\Model
+use Illuminate\Eloquent\Model;
 use TaylorNetwork\Formatters\Name\Traits\ModelNameFormat;
 
 class Customer extends Model
