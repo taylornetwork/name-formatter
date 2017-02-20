@@ -184,61 +184,6 @@ $formatter->style('fffF lllL')->format();
 'JJJJohn DDDDoe'
 ```
 
-## Trait
-
-This package also comes with a trait you can add to your models.
-
-``` php
-use Illuminate\Eloquent\Model;
-use TaylorNetwork\Formatters\Name\Traits\ModelNameFormat;
-
-class Customer extends Model
-{
-	use ModelNameFormat;
-	
-	protected $fillable = [
-		'first_name', 'last_name', 'address', 
-	];
-	
-	public function getFullNameAttribute()
-	{
-		return $this-getNameFormatter()->format();
-	}
-}
-```
-
-### Usage
-
-Usage is the same as the class above, however it will add `getNameFormatter()` to your models which will return an instance of the `Formatter` class. It also will allow you to override defaults in the model itself by overriding the properties in the `ModelNameFormat` trait.
-
-``` php
-use Illuminate\Eloquent\Model;
-use TaylorNetwork\Formatters\Name\Traits\ModelNameFormat;
-
-class Customer extends Model
-{
-	use ModelNameFormat;
-	
-	protected $fieldMap = [ 
-		'first_name' => 'firstName',
-		'last_name' => 'lastName'
-	];
-	
-	protected $formatStyle = 'L, F';
-
-	protected $fillable = [
-		'firstName', 'lastName', 'address', 
-	];
-	
-	public function getFullNameAttribute()
-	{
-		return $this->getNameFormatter()->format();
-	}
-}
-```
-
-The `$fieldMap` and `$formatStyle` properties on the model will be called when `getNameFormatter()` is called so calling `map` and `style` in the model is not necessary.
-
 ## Config
 
 Once you run `php artisan vendor:publish` the config file `nameformatter.php` will be in your `config` directory. There you can set the defaults you want in terms of format style, field map, etc.
