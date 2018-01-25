@@ -9,11 +9,18 @@
     ],
     "require": {
       "php": ">=5.4.0",
-      "laravel/framework": "5.4.*"
+      "laravel/framework": "5.5.*"
     },
     "autoload": {
     	"psr-4": {
 			"TaylorNetwork\\Formatters\\Name\\": "src/"
     	}
-    }
+    },
+    "extra": {
+    	"laravel": {
+        	"providers": [
+            		"TaylorNetwork\\Formatters\\Name\\NameFormatterServiceProvider"
+        	]
+    	}
+    },
 }
