@@ -5,22 +5,22 @@ namespace TaylorNetwork\Formatters\Name;
 class Formatter
 {
     /**
-     * Name format style
+     * Name format style.
      *
      * @var string
      */
     protected $style;
 
     /**
-     * Model
+     * Model.
      *
      * @var \Illuminate\Database\Eloquent\Model
      */
     protected $model;
-    
+
     /**
      * Field map.
-     * 
+     *
      * @var array
      */
     protected $fieldMap;
@@ -37,65 +37,65 @@ class Formatter
         $this->fieldMap = config('nameformatter.fieldMap', []);
     }
 
-	/**
-	 * Map a field to the model's equivalent
-	 *
-	 * @param array|string $field
-	 * @param string|null $modelField
-	 * @return $this
-	 */
-	public function map($field, $modelField = null)
-	{
-        if(is_array($field))
-        {
+    /**
+     * Map a field to the model's equivalent.
+     *
+     * @param array|string $field
+     * @param string|null  $modelField
+     *
+     * @return $this
+     */
+    public function map($field, $modelField = null)
+    {
+        if (is_array($field)) {
             $this->fieldMap = $field;
-        }
-        else
-        {
+        } else {
             $this->fieldMap[$field] = $modelField;
         }
-		return $this;
-	}
+
+        return $this;
+    }
 
     /**
-     * Override the style
+     * Override the style.
      *
      * @param string $style
+     *
      * @return $this
      */
     public function style($style)
     {
         $this->style = $style;
+
         return $this;
     }
-    
+
     /**
-     * Get a field name for model
-     * 
+     * Get a field name for model.
+     *
      * @param string $field
+     *
      * @return string
      */
     public function getField($field)
     {
-    	if(isset($this->fieldMap[$field]))
-    	{
-    		return $this->fieldMap[$field];
-    	}
-    	return $field;
+        if (isset($this->fieldMap[$field])) {
+            return $this->fieldMap[$field];
+        }
+
+        return $field;
     }
 
     /**
-     * Format the name
+     * Format the name.
      *
      * @return string
      */
     public function format()
     {
         $name = '';
-        for($i=0; $i<strlen($this->style); ++$i)
-        {
-            switch($this->style[$i])
-            {
+        for ($i = 0; $i < strlen($this->style); $i++) {
+            switch ($this->style[$i]) {
                 case 'F':
                     $name .= $this->model->{$this->getField('first_name')};
                     break;
@@ -113,6 +113,7 @@ class Formatter
                     break;
             }
         }
+
         return $name;
     }
 }
