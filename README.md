@@ -10,18 +10,6 @@ Via Composer
 $ composer require taylornetwork/name-formatter
 ```
 
-## Setup
-
-Add the service provider to the providers array in `config/app.php`
-
-``` php
-'providers' => [
-	
-	TaylorNetwork\Formatters\Name\NameFormatterServiceProvider::class,
-	
-],
-```
-
 ### Publish Config
 
 ``` bash
@@ -69,7 +57,7 @@ class Customer extends Model
 }
 ```
 
-Get the customers full name
+Get the customer's full name
 
 ``` php
 $customer = App\Customer::create([ 
@@ -88,6 +76,53 @@ Returns
 ```
 
 By default the `Formatter` class will concatenate the `first_name` attribute, a space and the `last_name` attribute.
+
+### Trait
+
+This package includes a trait you can add to your model that will add a `fullName` attribute.
+
+```php
+use Illuminate\Eloquent\Model;
+use TaylorNetwork\Formatters\Name\FormatsFullName;
+
+class Customer extends Model
+{
+    use FormatsFullName;
+
+	protected $fillable = [
+		'first_name', 'last_name', 'address', 
+	];
+}
+```
+
+You can then access the full name using the default configuration by:
+
+```php
+echo $customer->fullName;
+```
+
+#### Override Formatter Config
+
+You can override the formatter config when using the trait by overriding the `formatterConfig` method in your model
+
+```php
+use Illuminate\Eloquent\Model;
+use TaylorNetwork\Formatters\Name\FormatsFullName;
+
+class Customer extends Model
+{
+    use FormatsFullName;
+
+	protected $fillable = [
+		'first_name', 'last_name', 'address', 
+	];
+	
+	public function formatterConfig(&$formatter)
+	{
+	    $formatter->style('L, F');
+	}
+}
+```
 
 ### Available Methods
 

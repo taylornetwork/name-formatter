@@ -1,6 +1,7 @@
 {
     "name": "taylornetwork/name-formatter",
     "description": "A name formatter for Laravel",
+    "license": "MIT",
     "authors": [
         {
             "name": "Sam Taylor",
@@ -8,8 +9,12 @@
         }
     ],
     "require": {
-      "php": ">=5.4.0",
-      "illuminate/support": "5.*.*"
+      "php": ">=7.1",
+      "illuminate/support": ">=5.5"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.5",
+        "psy/psysh": "^0.9.4"
     },
     "autoload": {
     	"psr-4": {
