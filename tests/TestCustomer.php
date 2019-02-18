@@ -8,7 +8,7 @@ class TestCustomer extends TestModel
 {
     protected $attributes = [
         'first_name' => 'Test',
-        'last_name' => 'Customer',
+        'last_name'  => 'Customer',
     ];
 
     public function __construct(array $attributes = [])
@@ -20,6 +20,7 @@ class TestCustomer extends TestModel
     public function getFullNameAttribute()
     {
         $formatter = new Formatter($this);
+
         return $formatter->format();
     }
 }
