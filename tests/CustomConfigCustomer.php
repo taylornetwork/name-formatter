@@ -23,7 +23,7 @@ class CustomConfigCustomer extends TestModel
     {
         $formatter->map([
             'first_name' => 'fname',
-            'last_name' => 'lname',
+            'last_name'  => 'lname',
         ])->style('L, f');
     }
 }

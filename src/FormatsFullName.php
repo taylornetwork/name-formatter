@@ -18,7 +18,7 @@ trait FormatsFullName
 
     public function getFormatter()
     {
-        if (!isset($this->nameFormatter) || (! $this->nameFormatter instanceof Formatter)) {
+        if (!isset($this->nameFormatter) || (!$this->nameFormatter instanceof Formatter)) {
             $this->nameFormatter = new Formatter($this);
             $this->formatterConfig($this->nameFormatter);
         }
