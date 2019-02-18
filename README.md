@@ -87,7 +87,7 @@ use TaylorNetwork\Formatters\Name\FormatsFullName;
 
 class Customer extends Model
 {
-    use FormatsFullName;
+	use FormatsFullName;
 
 	protected $fillable = [
 		'first_name', 'last_name', 'address', 
